@@ -1,17 +1,12 @@
-import type { HeaderLink, SiteConfig } from '@/types/config';
+import type { SiteConfig } from '@/types/config';
 
 export const siteConfig: SiteConfig = {
   siteTitle: 'My Site',
   siteDesc: 'My Site Description',
-  siteUrl: 'https://example.com',
+  siteUrl: 'https://nono-k.github.io',
+  siteBase: 'threejs-collage-work',
   siteType: 'website',
   siteLocale: 'ja_JP',
   siteIcon: '/favicon.svg',
   siteImg: '/ogp.png',
 };
-
-export const headerLink: HeaderLink[] = [
-  { name: 'Home', url: '/' },
-  { name: 'About', url: '/about' },
-  { name: 'Contact', url: '/contact' },
-];
