@@ -1,25 +1,37 @@
 ---
-import Card from '@/components/ui/Card.astro';
-import { cardData } from '@/data/card-data';
+import { getCollection } from 'astro:content';
+import { siteConfig } from '@/config';
 import Layout from '@/layouts/Layout.astro';
+
+const { siteBase } = siteConfig;
+const pages = await getCollection('content');
 ---
 
 <Layout>
-  <h1>TOPページ</h1>
-
-  <div class="card__container">
-    {cardData.map((card) => (
-      <Card card={card} />
-    ))}
+  <div class="container">
+    <h1>Three.js Collage Work</h1>
+    <ul>
+      {pages.map(page => (
+        <li>
+          <a href={`/${siteBase}/${page.data.slug}`}>{page.data.title}</a>
+        </li>
+      ))}
+    </ul>
   </div>
 </Layout>
 
 <style lang="scss">
-  .card__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin: 3rem 2rem;
-    padding-inline: 1rem;
+  .container {
+    margin: 2rem;
+
+    ul {
+      margin-top: 1rem;
+      margin-left: 1.5rem;
+      list-style: inherit;
+
+      li {
+        list-style: inherit;
+      }
+    }
   }
 </style>
